@@ -66,3 +66,61 @@ F1
 Switch Rate
 
 False Switch Rate
+
+## How to Run
+1) Prepare data
+
+Place CSVs here:
+
+datasets_comparative/
+  ├─ fixed_emotion_dataset_20250526_205726.csv
+  └─ Updated_Lyapunov_Dataset_with_Speaker.csv
+
+2) Run the comparative experiment
+cd experiments_comparative
+python Comparative_test.py
+
+## Outputs
+
+gpt_strategy_comparison.csv — Ours (F1-opt) vs Fixed vs Rule vs No-Switching.
+
+gpt_strategy_comparison_equalSR.csv — Ours calibrated to match Fixed’s validation Switch Rate (fair-budget comparison).
+
+gpt_strategy_hyperparams.json — selected hyperparameters (validation).
+
+gpt_strategy_pred_detail.parquet — per-turn predictions on test: y_true, pred_ours_*, pred_fixed, pred_rule, pred_nosw, plus original columns.
+
+Read parquet with pandas (pip install pyarrow) or convert to CSV.
+
+## Key Hyperparameters
+
+In experiments_comparative/gpt_Comparative_test.py:
+
+# Personalized threshold = gamma * (alpha * k * rho)
+OURS_ALPHA_MARGIN = 0.9
+OURS_K_GRID       = [1.2, 1.3, 1.4, 1.6]
+GAMMA_GRID        = np.arange(0.75, 1.26, 0.025)   # continuous SR calibration
+OURS_EPS_GRID     = [-0.012, -0.01, -0.008, -0.006, -0.004]
+OURS_H_GRID       = [3]
+OURS_BETA_GATE    = 0.75
+OURS_EMA_ALPHA    = 0.4
+
+ρ uses MBTI-wise 90th percentile of personalized 
+
+V on train (robust).
+
+γ enables equal-SR calibration or best-F1 search.
+
+## Citation
+
+If you use this code or datasets, please cite the accompanying report/paper:
+
+@inproceedings{your2025lyapunov,
+  title   = {A Lyapunov-Based Switching Strategy for Customer Service Systems},
+  author  = {...},
+  year    = {2025}
+}
+
+## License
+
+Add a LICENSE file (e.g., MIT, Apache-2.0) to specify usage terms.
