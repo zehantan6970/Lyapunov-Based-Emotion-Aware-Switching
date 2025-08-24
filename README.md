@@ -31,6 +31,7 @@ Code and datasets for building personalized linear PAD emotion dynamics per MBTI
  ## Repository Structure
 
 The repo must include the four top-level folders below. Names can be adjusted, but keep the structure.
+```
 .
 ├─ datasets_multiturn/                 
 │  ├─ deepseek_generate_text.py
@@ -44,9 +45,9 @@ The repo must include the four top-level folders below. Names can be adjusted, b
 │
 ├─ experiments_comparative/           
 │  └─ Comparative_test.py
- 
+ ```
 
- ##Test Phase
+ ## Test Phase
 
 Input
 datasets_comparative/Updated_Lyapunov_Dataset_with_Speaker.csv
