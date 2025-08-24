@@ -9,12 +9,18 @@ Code and datasets for building personalized linear PAD emotion dynamics per MBTI
   Estimate a 3×3 linear PAD dynamics matrix $A_k$ **per MBTI type** from user-turn PAD sequences. Post-process to enforce **high-diagonal / low-coupling**, then **Schur-stabilize** so $\rho(A)<1$.
 
 * **Lyapunov Function**
-  Solve the discrete Lyapunov equation
 
-  $ A_k^\top P_k A_k - P_k = -Q,\quad Q=I $
+We solve the discrete Lyapunov equation:
 
-  to obtain $P_k \succ 0$, and define the energy
-  $V(x) = x^\top P_k x. $
+$$
+A_k^\top P_k A_k - P_k = -Q,\quad Q = I
+$$
+
+to obtain \(P_k \succ 0\) and define the energy:
+
+$$
+V(x) = x^\top P_k x .
+$$
 
 * **Four Strategies** (evaluated on held-out multi-turn dialogues)
 
@@ -93,13 +99,13 @@ Read parquet with pandas (pip install pyarrow) or convert to CSV.
 In experiments_comparative/gpt_Comparative_test.py:
 
 # Personalized threshold = gamma * (alpha * k * rho)
-OURS_ALPHA_MARGIN = 0.9
-OURS_K_GRID       = [1.2, 1.3, 1.4, 1.6]
-GAMMA_GRID        = np.arange(0.75, 1.26, 0.025)   # continuous SR calibration
-OURS_EPS_GRID     = [-0.012, -0.01, -0.008, -0.006, -0.004]
-OURS_H_GRID       = [3]
-OURS_BETA_GATE    = 0.75
-OURS_EMA_ALPHA    = 0.4
+-OURS_ALPHA_MARGIN = 0.9
+-OURS_K_GRID       = [1.2, 1.3, 1.4, 1.6]
+-GAMMA_GRID        = np.arange(0.75, 1.26, 0.025)   # continuous SR calibration
+-OURS_EPS_GRID     = [-0.012, -0.01, -0.008, -0.006, -0.004]
+-OURS_H_GRID       = [3]
+-OURS_BETA_GATE    = 0.75
+-OURS_EMA_ALPHA    = 0.4
 
 ρ uses MBTI-wise 90th percentile of personalized 
 
