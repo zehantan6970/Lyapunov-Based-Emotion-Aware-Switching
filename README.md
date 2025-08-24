@@ -75,9 +75,10 @@ False Switch Rate
 Place CSVs here:
 
 datasets_comparative/
+```
   ├─ fixed_emotion_dataset_20250526_205726.csv
   └─ Updated_Lyapunov_Dataset_with_Speaker.csv
-
+```
 2) Run the comparative experiment
 cd experiments_comparative
 python Comparative_test.py
@@ -99,12 +100,18 @@ Read parquet with pandas (pip install pyarrow) or convert to CSV.
 In experiments_comparative/gpt_Comparative_test.py:
 
 # Personalized threshold = gamma * (alpha * k * rho)
--OURS_ALPHA_MARGIN = 0.9
--OURS_K_GRID       = [1.2, 1.3, 1.4, 1.6]
--GAMMA_GRID        = np.arange(0.75, 1.26, 0.025)   # continuous SR calibration
--OURS_EPS_GRID     = [-0.012, -0.01, -0.008, -0.006, -0.004]
--OURS_H_GRID       = [3]
--OURS_BETA_GATE    = 0.75
+OURS_ALPHA_MARGIN = 0.9
+
+OURS_K_GRID       = [1.2, 1.3, 1.4, 1.6]
+
+GAMMA_GRID        = np.arange(0.75, 1.26, 0.025)   # continuous SR calibration
+
+OURS_EPS_GRID     = [-0.012, -0.01, -0.008, -0.006, -0.004]
+
+OURS_H_GRID       = [3]
+
+OURS_BETA_GATE    = 0.75
+
 -OURS_EMA_ALPHA    = 0.4
 
 ρ uses MBTI-wise 90th percentile of personalized 
