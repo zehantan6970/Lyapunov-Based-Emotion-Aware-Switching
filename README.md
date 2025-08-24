@@ -112,7 +112,7 @@ OURS_H_GRID       = [3]
 
 OURS_BETA_GATE    = 0.75
 
--OURS_EMA_ALPHA    = 0.4
+OURS_EMA_ALPHA    = 0.4
 
 ρ uses MBTI-wise 90th percentile of personalized 
 
