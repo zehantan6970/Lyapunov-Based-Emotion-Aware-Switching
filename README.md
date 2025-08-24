@@ -32,25 +32,19 @@ Code and datasets for building personalized linear PAD emotion dynamics per MBTI
 
 The repo must include the four top-level folders below. Names can be adjusted, but keep the structure.
 .
-├─ datasets_multiturn/                 # ( 多轮对话数据集文件夹)
+├─ datasets_multiturn/                 
 │  ├─ deepseek_generate_text.py
 │  ├─ datafix.py
 │  └─ ... scripts to generate multi-turn dialogues
 │
-├─ datasets_comparative/               # ( 对比试验用的数据集文件夹)
+├─ datasets_comparative/              
 │  ├─ fixed_emotion_dataset_20250526_205726.csv
 │  ├─ Updated_Lyapunov_Dataset_with_Speaker.csv
 │  └─ Updated_Lyapunov_Switch_Dataset_with_Speaker.py   # optional helper
 │
-├─ experiments_comparative/            # (对比试验文件夹)
-│  ├─ gpt_Comparative_test.py          # main experiment script
-│  ├─ NewComparativetest.py            # optional/legacy
-│  ├─ 对比试验代码.py                        # optional/legacy (Chinese)
-│  └─ A_Lyapunov_Based_Switching_Strategy_for_Customer_Service_Systems.pdf
-│
-└─ mbti_A_matrices/                    # (16个MBTI线性情绪动力学矩阵AK文件夹)
-   ├─ A_ISTJ.npy  ... A_ENTJ.npy       # saved 3×3 A_k matrices (optional artifacts)
-   └─ P_ISTJ.npy  ... P_ENTJ.npy       # solved P_k matrices (optional)
+├─ experiments_comparative/           
+│  └─ Comparative_test.py
+ 
 
  ##Test Phase
 
