@@ -11,15 +11,10 @@ Code and datasets for building personalized linear PAD emotion dynamics per MBTI
 * **Lyapunov Function**
   Solve the discrete Lyapunov equation
 
-  $$
-  A_k^\top P_k A_k - P_k = -Q,\quad Q=I
-  $$
+  $ A_k^\top P_k A_k - P_k = -Q,\quad Q=I $
 
   to obtain $P_k \succ 0$, and define the energy
-
-  $$
-  V(x) = x^\top P_k x.
-  $$
+  $V(x) = x^\top P_k x. $
 
 * **Four Strategies** (evaluated on held-out multi-turn dialogues)
 
