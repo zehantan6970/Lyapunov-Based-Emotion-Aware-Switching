@@ -3,16 +3,10 @@
 
 """
 Improved Comparative Switching Strategies:
-- Enhanced Lyapunov-Personalized (Ours) - 改进版本，提高敏感性
+- Enhanced Lyapunov-Personalized (Ours) 
 - Lyapunov-Fixed
 - Rule-Based Thresholding
 - No-Switching Baseline
-
-主要改进：
-1. 降低触发门槛，提高Recall
-2. 增加多重检测机制
-3. 动态阈值调整
-4. 优化评估标准
 """
 
 import os
@@ -774,4 +768,5 @@ def main():
 
 # Entry
 if __name__ == "__main__":
+
     main()
